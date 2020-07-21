@@ -1,0 +1,2 @@
+npm i bootstrap node-sass sass-loader --save
+npm install --save axios vue-axios

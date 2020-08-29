@@ -2,15 +2,18 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import axios from 'axios' // 主要 ajax 套件
-import VueAxios from 'vue-axios' // 將它(ajax)轉為 vue 的套件，使可用 this 指令引用
+import VueAxios from 'vue-axios'
+import Axios from 'axios'
+import router from './router'
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, Axios);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  router,
   components: { App },
   template: '<App/>'
 })

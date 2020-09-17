@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<form class="form-signin" @submit.prevent='signin'>
+		<form class="form-signin" @submit.prevent='login'>
 			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 			<label for="inputEmail" class="sr-only">Email address</label>
 			<input v-model="user.username" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
@@ -14,6 +14,7 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 			<p class="mt-5 mb-3 text-muted">© 2020</p>
 		</form>
+		<a href="#" @click.prevent="aclick">try index</a>
 	</div>
 </template>
 
@@ -30,18 +31,18 @@ export default {
 	},
 	// created: function(){
 	created() {
-		const api = process.env.API_PATH + process.env.ACT_PATH + '/products';
-		this.$http.get(api).then((res)=>{
-			console.log('Login', res);
-		})
+
 	},
 	methods: {
-		signin: function(){
-			// console.log('got submit');
-			const api = process.env.API_PATH + 'signin';
-			const vm = this
+		login: function(){
+			const api = process.env.API_PATH + 'admin/signin';
+			const vm = this;
 			this.$http.post(api, vm.user).then((res)=>{
-				console.log('signin fn ', res);
+				if( res.data.success ){
+					vm.$router.push('/admin/products');
+				}else{
+					alert('sign err');
+				};
 			});
 		}
 	}

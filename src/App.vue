@@ -17,23 +17,15 @@
 <script>
 export default {
   name: 'App',
-  created() {
-    //eason_ru
-    //es
-    //es2
-    const API = process.env.API_PATH + process.env.ACT_PATH + '/products';
-    // ^ https://vue-course-api.hexschool.io/api/es/products
-    console.log(API);
-    this.$http.get(API).then((res)=>{
-      console.log(res);
-    });
-  }
+  // created() {
+  //   const API = process.env.API_PATH + 'api/' + process.env.ACT_PATH + '/products';
+  //   this.$http.get(API).then((res)=>{
+  //     console.log(res);
+  //   });
+  // }
 }
 </script>
 
 <style lang='sass'>
-  // @import './assets/all'
-  @import '~bootstrap/scss/functions'
-  @import './assets/helper/variables'
-  @import '~bootstrap/scss/bootstrap'
+  @import './assets/all'
 </style>
